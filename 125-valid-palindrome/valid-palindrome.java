@@ -1,19 +1,30 @@
 class Solution {
-    public boolean rec(int left, String ans, int right){
-        if(left >= right) return true;
-
-        if(ans.charAt(left) != ans.charAt(right)) return false;
-
-        left++;
-        right--;
-       return rec(left, ans, right);
-    }
     public boolean isPalindrome(String s) {
-        String comp = s.replaceAll("[^a-zA-Z0-9]","");
-        String ans = comp.toLowerCase();
-        int n = ans.length();
         int left = 0;
-        int right = n - 1;
-        return rec(0, ans, n-1);
+        int right = s.length() - 1;
+
+        while (left < right) {
+            while (left < right &&
+                   !Character.isLetterOrDigit(s.charAt(left))) {
+                left++;
+            }
+
+            while (left < right &&
+                   !Character.isLetterOrDigit(s.charAt(right))) {
+                right--;
+            }
+
+            char l = Character.toLowerCase(s.charAt(left));
+            char r = Character.toLowerCase(s.charAt(right));
+
+            if (l != r) {
+                return false;
+            }
+
+            left++;
+            right--;
+        }
+
+        return true;
     }
 }
