@@ -9,6 +9,7 @@ class Solution {
                 int temp = nums[first];
                 nums[first] = nums[sec];
                 nums[sec] = temp;
+
                 first++;
             }
         }
