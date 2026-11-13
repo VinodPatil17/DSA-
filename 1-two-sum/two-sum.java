@@ -8,9 +8,7 @@ class Solution {
             if(map.containsKey(rem)){
                 return new int[]{map.get(rem), i};
             }
-            if(!map.containsKey(rem)){
-                map.put(nums[i], i);
-            }
+            map.put(nums[i], i);
         }
         return new int[]{};
     }
